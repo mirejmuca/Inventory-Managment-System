@@ -22,7 +22,7 @@ public class Product {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "category")
+    @JoinColumn(name = "category")
     private Category category;
 
     @CreationTimestamp
@@ -81,4 +81,25 @@ public class Product {
         return updatedAt;
     }
 
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void getCategory(Category category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", description='" + description + '\'' +
+                ", category=" + category +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }
